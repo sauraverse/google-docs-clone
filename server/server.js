@@ -3,10 +3,10 @@ require('dotenv').config();
 const mongoose= require('mongoose')
 const DocSchema = require("./DocSchema")
 
-mongoose.connect(process.env.MONGODB_URI)
-const io = require('socket.io')(3001, {
+mongoose.connect("mongodb+srv://alpha999saurav:RSz5wj56uGhvFdm3@cluster0.ffzdzni.mongodb.net/Docs?retryWrites=true&w=majority&appName=Cluster0")
+const io = require('socket.io')(process.env.PORT || 3001, {
     cors: {
-        origin: process.env.CLIENT_ADDRESS,
+        origin: "https://docs.sauraverse.com/",
         methods: ["GET", "POST"],
     },
 })
