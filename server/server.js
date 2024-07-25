@@ -1,11 +1,12 @@
+require('dotenv').config();
+
 const mongoose= require('mongoose')
 const DocSchema = require("./DocSchema")
 
 mongoose.connect(process.env.MONGODB_URI)
-
 const io = require('socket.io')(3001, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: process.env.CLIENT_ADDRESS,
         methods: ["GET", "POST"],
     },
 })
